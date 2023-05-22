@@ -1,4 +1,17 @@
+/*----------------------------------------------------------------------------/
+  JeepDash480 - Auxiliary Car Instrument Panel for SUVs (Jeep Wrangler JL)
 
+Original Source:
+ (https://github.com/jroever/JeepDash/)
+
+
+Licence:
+ [GnuGPL3](https://github.com/jroever/JeepDash/blob/main/LICENSE)
+
+Author:
+ [jroever](https://jroever.github.io/)
+
+/----------------------------------------------------------------------------*/
 
 PROGMEM const unsigned char icon_coolant_gray8[1024] = {
   0x00,  0x00,  0x00,  0x00,  0x00,  0x00,  0x00,  0x00,  0x00,  0x00,  0x00,  0x00,  0x00,  0x00,  0x00,  0x00,  0x00,  0x00,  0x00,  0x00,  0x00,  0x00,  0x00,  0x00,  0x00,  0x00,  0x00,  0x00,  0x00,  0x00,  0x00,  0x00,  

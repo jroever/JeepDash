@@ -1,17 +1,22 @@
 /*----------------------------------------------------------------------------/
-  Lovyan GFX - Graphics library for embedded devices.
+  JeepDash480 - Auxiliary Car Instrument Panel for SUVs (Jeep Wrangler JL)
 
 Original Source:
- https://github.com/jroever/JeepDash480/
+ (https://github.com/jroever/JeepDash/)
+
 
 Licence:
- [FreeBSD](https://github.com/lovyan03/LovyanGFX/blob/master/license.txt)
+ [GnuGPL3](https://github.com/jroever/JeepDash/blob/main/LICENSE)
 
 Author:
- [lovyan03](https://twitter.com/lovyan03)
+ [jroever](https://jroever.github.io/)
+ 
+ /----------------------------------------------------------------------------*/
+
+
 #include "ArcMeter.h"
 
-ArcMeter::ArcMeter(LGFX *display, char* label, int pos_x, int pos_y) 
+ArcMeter::ArcMeter(LGFX *display, char* label, char* label_left, char* label_right, int pos_x, int pos_y) 
 // =======================
 {
   _pos_x = pos_x;
@@ -33,7 +38,7 @@ ArcMeter::ArcMeter(LGFX *display, char* label, int pos_x, int pos_y)
   int color, j=1;
 
   for (int k=2;k<60;k=k+3){
-    color = (j<<11)+(j<<6)+j++; // 565 grayscale
+    color = rgb565_gray(j++); // 565 grayscale (32 level)
     _display->fillArc(_pos_x+RADIUS_X, _pos_y+RADIUS_Y, RADIUS_R4-3, RADIUS_R4-1, 174+k, 366-k, color); // outter line
   }
 
@@ -52,12 +57,12 @@ ArcMeter::ArcMeter(LGFX *display, char* label, int pos_x, int pos_y)
   //_display->setTextColor(TFT_DARKGREEN, TFT_BKGRND);
   _display->setTextColor(TFT_DARKGRAY, TFT_BKGRND);
   _display->setTextDatum(textdatum_t::bottom_left);
-  _display->drawString("C", _pos_x+15, _pos_y+2*RADIUS_Y-38);
+  _display->drawString(label_left, _pos_x+15, _pos_y+2*RADIUS_Y-37);
 
   //_display->setTextColor(TFT_RED, TFT_BKGRND);
   _display->setTextColor(TFT_DARKGRAY, TFT_BKGRND);
   _display->setTextDatum(textdatum_t::bottom_right);
-  _display->drawString("H", _pos_x+2*RADIUS_X-15, _pos_y+2*RADIUS_Y-38);
+  _display->drawString(label_right, _pos_x+2*RADIUS_X-15, _pos_y+2*RADIUS_Y-37);
 }
 
 // =======================
@@ -92,14 +97,14 @@ void ArcMeter::updateValue(int val)
     float fval = val/10.0;
     float ofval = _v0_ow/10.0;
     _display->setTextColor(TFT_BKGRND, TFT_BKGRND);
-    _display->drawFloat(ofval, 1, _pos_x+RADIUS_X, _pos_y+RADIUS_Y-1);
+    _display->drawFloat(ofval, 1, _pos_x+RADIUS_X, _pos_y+RADIUS_Y-2);
     _display->setTextColor(txtCol, TFT_BKGRND);
-    _display->drawFloat(fval, 1, _pos_x+RADIUS_X, _pos_y+RADIUS_Y-1);
+    _display->drawFloat(fval, 1, _pos_x+RADIUS_X, _pos_y+RADIUS_Y-2);
   } else {
     _display->setTextColor(TFT_BKGRND, TFT_BKGRND);
-    _display->drawNumber(_v0_ow, _pos_x+RADIUS_X, _pos_y+RADIUS_Y-1);
+    _display->drawNumber(_v0_ow, _pos_x+RADIUS_X, _pos_y+RADIUS_Y-2);
     _display->setTextColor(txtCol, TFT_BKGRND);
-    _display->drawNumber(val, _pos_x+RADIUS_X, _pos_y+RADIUS_Y-1);
+    _display->drawNumber(val, _pos_x+RADIUS_X, _pos_y+RADIUS_Y-2);
   }  
   // clear old remaining text if needed
   //if (_v0_ow>v0_w) {

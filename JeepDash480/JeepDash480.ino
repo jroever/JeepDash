@@ -33,7 +33,7 @@ static constexpr int LOOP_PERIOD = 16; // Display updates in ms
 int value[5] = {0, 0, 0, 0, 0};
 int delta[5] = {1, 1, 1, 1, 1};
 
-uint32_t updateTime = 0;       // time for next update
+uint32_t updateTime = 0; // time for next update
 ArcMeter *meter[5];
 
 void setup(void)
@@ -41,22 +41,23 @@ void setup(void)
   display.init();
   display.fillScreen(TFT_BLACK);
 
-  meter[0] = new ArcMeter(&display,"Coolant Temp",0+6,6); // Draw analogue meter
-  meter[1] = new ArcMeter(&display,"Oil Temp",160+6,6); // Draw analogue meter
-  meter[2] = new ArcMeter(&display,"Battery Voltage",320+6,6); // Draw analogue meter
-  meter[3] = new ArcMeter(&display,"Trans Temp",80+6,160+6); // Draw analogue meter
-  meter[4] = new ArcMeter(&display,"Oil Pressure",240+6,160+6); // Draw analogue meter
+  meter[0] = new ArcMeter(&display,"Coolant Temp","C","H",0+6,6); // Draw analogue meter
+  meter[1] = new ArcMeter(&display,"Oil Temp","C","H",160+6,6); // Draw analogue meter
+  meter[2] = new ArcMeter(&display,"Battery Voltage","L","H",320+6,6); // Draw analogue meter
+  meter[3] = new ArcMeter(&display,"Trans Temp","C","H",80+6,160+6); // Draw analogue meter
+  meter[4] = new ArcMeter(&display,"Oil Pressure","L","H",240+6,160+6); // Draw analogue meter
   meter[2]->setDigits(1);
 
   display.endWrite();
 
   //  void pushGrayscaleImage(int32_t x, int32_t y, int32_t w, int32_t h, const uint8_t *image, color_depth_t depth, uint32_t fg_rgb888, uint32_t bg_rgb888);
-  display.pushGrayscaleImage(80-16,90,32,32,icon_coolant_gray8,lgfx::grayscale_8bit,TFT_DARKGRAY,TFT_BLACK);
-  display.pushGrayscaleImage(240-16,90,32,32,icon_oiltemp_gray8,lgfx::grayscale_8bit,TFT_DARKGRAY,TFT_BLACK);
-  display.pushGrayscaleImage(400-16,90,32,32,icon_battery_gray8,lgfx::grayscale_8bit,TFT_DARKGRAY,TFT_BLACK);
-  display.pushGrayscaleImage(160-16,251,32,32,icon_transmission_gray8,lgfx::grayscale_8bit,TFT_DARKGRAY,TFT_BLACK);
-  display.pushGrayscaleImage(320-16,250,32,32,icon_oilpress_gray8,lgfx::grayscale_8bit,TFT_DARKGRAY,TFT_BLACK);
-  updateTime = millis(); // Next update time
+  int gray18 = ArcMeter::rgb565_gray(21);
+  display.pushGrayscaleImage(80-16,91,32,32,icon_coolant_gray8,lgfx::grayscale_8bit,gray18,TFT_BLACK);
+  display.pushGrayscaleImage(240-16,90,32,32,icon_oiltemp_gray8,lgfx::grayscale_8bit,gray18,TFT_BLACK);
+  display.pushGrayscaleImage(400-16,90,32,32,icon_battery_gray8,lgfx::grayscale_8bit,gray18,TFT_BLACK);
+  display.pushGrayscaleImage(160-16,251,32,32,icon_transmission_gray8,lgfx::grayscale_8bit,gray18,TFT_BLACK);
+  display.pushGrayscaleImage(320-16,250,32,32,icon_oilpress_gray8,lgfx::grayscale_8bit,gray18,TFT_BLACK);
+  updateTime = millis(); // Next update time 
 }
 
 void loop(void)
