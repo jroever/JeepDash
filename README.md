@@ -26,11 +26,11 @@ Communication between the two boards is done via simple serial (UART) communicat
 
 ## Final Features 
 - Accessory Gauges available in Jeep's "Off-Road Pages" (done)
-- gauges for pitch and roll (in progress)
-- compass rose (tbd. compass heading information / might need extra sensor) (in progress)
-- extra screens accessible via swiping for 
-  - Tire pressure and rotation (in progress)
+- Gauges for pitch and roll (in progress)
+- Compass rose (tbd. compass heading information / might need extra sensor) (in progress)
+- Tire pressure and rotation (in progress)
+- Extra screens accessible via swiping for 
   - Transmission state (Hi/Lo, Lockers)
   - Tire slip information
   - Aux switch information (pot. with interactions)
-  - more tbd.
+  - ... more tbd.
