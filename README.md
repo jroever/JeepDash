@@ -1,5 +1,5 @@
 # JeepDash
-Auxiliary Car Instrument Panel for SUVs (Jeep Wrangler JL)
+Auxiliary Gauges Instrument Panel for SUVs (Jeep Wrangler JL)
 
 :warning: This Project is work in progress! 
 
