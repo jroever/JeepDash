@@ -24,13 +24,12 @@ Communication between the two boards is done via simple serial (UART) communicat
   - receive CAN bus data from Raspberry PI 3B+ with CAN Bus hat
   - forward data via serial UART to ESP32S3
 
-## Immediate Goals
-- add gauges for pitch and roll
-- add compass rose (tbd. compass heasing information / might need extra sensor)
-
-## Further Goals
-- add extra screens accessible via swiping for 
-  - Tire pressure and rotation
+## Final Features 
+- Accessory Gauges available in Jeep's "Off-Road Pages" (done)
+- gauges for pitch and roll (in progress)
+- compass rose (tbd. compass heading information / might need extra sensor) (in progress)
+- extra screens accessible via swiping for 
+  - Tire pressure and rotation (in progress)
   - Transmission state (Hi/Lo, Lockers)
   - Tire slip information
   - Aux switch information (pot. with interactions)
