@@ -65,6 +65,21 @@ ArcMeter::ArcMeter(LGFX *display, char* label, char* label_left, char* label_rig
   _display->drawString(label_right, _pos_x+2*RADIUS_X-15, _pos_y+2*RADIUS_Y-37);
 }
 
+void ArcMeter::drawArc(LGFX *display, int pos_x, int pos_y) 
+// =======================
+{
+  // outter gradient arc
+  int color, j=1;
+
+  for (int k=2;k<60;k=k+3){
+    color = rgb565_gray(j++); // 565 grayscale (32 level)
+    display->fillArc(pos_x+RADIUS_X, pos_y+RADIUS_Y, RADIUS_R4-3, RADIUS_R4-1, 174+k, 366-k, color); // outter line
+  }
+
+  //_display->fillArc(_pos_x+RADIUS_X, _pos_y+RADIUS_Y, RADIUS_R0-1, RADIUS_R0+1, 170-5, 370+5, TFT_WHITE); // inner line
+
+}
+
 // =======================
 void ArcMeter::updateValue(int val)
 // =======================

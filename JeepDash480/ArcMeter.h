@@ -31,11 +31,14 @@ static constexpr int RADIUS_R1 = RADIUS_Y * 11 / 16;
 static constexpr int RADIUS_R0 = RADIUS_Y * 10 / 16;
 
 class ArcMeter {
+
 public:
   ArcMeter(LGFX *display, char* label, char* label_left, char* label_right, int pos_x, int pos_y);
   void setDigits(int digits){_digits = digits;}
 	static int rgb565_gray(int b5){return((b5<<11)+(b5<<6)+b5);}
+  static void drawArc(LGFX *display, int pos_x, int pos_y);
 	void updateValue(int value);
+
 private:
   int _pos_x, _pos_y;
   int _v0_ow,_v1_ow,_v2_ow;
