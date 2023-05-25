@@ -10,7 +10,7 @@ The project is targeting a 2020 Jeep Wrangler JLUR, but it should be easily adap
 ![alt text](https://github.com/jroever/JeepDash/blob/main/JeepDash480.jpg?raw=true)
 
 Two controller boards are used (see below). 
-One first board is used for maine display and user interaction.
+The first board is used for main display and user interaction.
 The second board is responsible for gathering the data from the two CAN busses that are used on the Jeep.
 Communication between the two boards is done via simple serial (UART) communication.
 
