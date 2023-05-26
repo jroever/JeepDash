@@ -15,8 +15,14 @@ The second board is responsible for gathering the data from the two CAN busses t
 Communication between the two boards is done via simple serial (UART) communication.
 
 ## Hardware
-- [Makerfabs ESP32S3 Parallel TFT with Touch 4.0"](https://www.makerfabs.com/esp32-s3-parallel-tft-with-touch-4-inch.html "Product Link")
-- [Seed Studio CANBed Dual Dev Kit V1.1](https://www.seeedstudio.com/CANBed-DUAL-RP2040-based-Arduino-CAN-Bus-dev-board-2-independent-CAN2-0-CAN-FD-p-5377.html "Product Link")
+- Boards
+  - [Makerfabs ESP32S3 Parallel TFT with Touch 4.0"](https://www.makerfabs.com/esp32-s3-parallel-tft-with-touch-4-inch.html "Product Link")
+  - [Seed Studio CANBed Dual Dev Kit V1.1](https://www.seeedstudio.com/CANBed-DUAL-RP2040-based-Arduino-CAN-Bus-dev-board-2-independent-CAN2-0-CAN-FD-p-5377.html "Product Link")
+
+- Connectors
+  - [CAN Bus Connector (green)](https://www.mouser.com/ProductDetail/TE-Connectivity-AMP/5-2138650-1?qs=N0TJGnUfxCD1oGn85uoFLQ%3D%3D&countrycode=US&currencycode=USD)
+  - [CAN Bus Connector (white)](https://www.mouser.com/ProductDetail/TE-Connectivity/2-2138650-1?qs=N0TJGnUfxCBU3xsQ5QFkFg%3D%3D&countrycode=US&currencycode=USD)
+  - [CAN Bus Connector (terminal-female)](https://www.mouser.com/ProductDetail/TE-Connectivity-AMP/5-963715-6?qs=JRGdcu81duJRHENoNduZiA%3D%3D&countrycode=US&currencycode=USD)
 
 ## Status
 - First set of instrument gauges with sample animation on ESP32S3 dev kit
@@ -34,3 +40,8 @@ Communication between the two boards is done via simple serial (UART) communicat
   - Tire slip information
   - Aux switch information (pot. with interactions)
   - ... more tbd.
+
+## Useful Links
+
+- [Image to Hex Conversion (better for RGB 565)](https://www.digole.com/tools/PicturetoC_Hex_converter.php)
+- [Image to Hex Conversion (better for RGB 8888)](https://lvgl.io/tools/imageconverter) 
