@@ -15,12 +15,12 @@ The second board is responsible for gathering the data from the two CAN busses t
 Communication between the two boards is done via simple serial (UART) communication.
 
 ## Hardware
-- Makerfabs ESP32S3 Parallel TFT with Touch 4.0"
-- Seed Studio CANBed Dual Dev Kit V1.1
+- [Makerfabs ESP32S3 Parallel TFT with Touch 4.0"](https://www.makerfabs.com/esp32-s3-parallel-tft-with-touch-4-inch.html "Product Link")
+- [Seed Studio CANBed Dual Dev Kit V1.1](https://www.seeedstudio.com/CANBed-DUAL-RP2040-based-Arduino-CAN-Bus-dev-board-2-independent-CAN2-0-CAN-FD-p-5377.html "Product Link")
 
 ## Status
 - First set of instrument gauges with sample animation on ESP32S3 dev kit
-- Initial CANBed test code
+- Initial CANBed test code (proven concept, but no yet in sample code)
   - receive CAN bus data from Raspberry PI 3B+ with CAN Bus hat
   - forward data via serial UART to ESP32S3
 
